@@ -1,26 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <template id="view_speedscope_index">
-        &lt;!DOCTYPE html&gt;
-        <html lang="en">
-            <head>
-                <meta charset="UTF-8"/>
-                <title>Speedscope for odoo</title>
-                <script t-if="profile">window.location.hash="#profileURL=<t t-esc="url_root"/>web/content/ir.profile/<t t-esc="profile.id"/>/speedscope"</script>
-                <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet"/>
-                <link rel="stylesheet"
-                    t-attf-href="{{cdn}}reset.8c46b7a1.css"
-                    crossorigin="anonymous"
-                    integrity="sha256-mrA/937EwtEDE+8XZ/62tNz2T/BnCLth8QmWsWKpvD8="
-                />
-            </head>
-            <body>
-                <script
-                    t-attf-src="{{cdn}}speedscope.026f36b0.js"
-                    crossorigin="anonymous"
-                    integrity="sha256-CvDqAOMjq0Sv/D59O5JSbzzXoClZ3rptt6ts8D/6CWw="
-                ></script>
-            </body>
-        </html>
-    </template>
-</odoo>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Speedscope for Odoo</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Speedscope for Odoo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Speedscope for Odoo</h1>
+    <p>Speedscope is a powerful tool for visualizing and analyzing performance data. With Speedscope, you can easily identify bottlenecks and optimize your code for better performance.</p>
+    <p>To get started, simply select a profile from the list below.</p>
+    <ul class="list-unstyled">
+      <li>
+        <a href="#">Profile 1</a>
+      </li>
+      <li>
+        <a href="#">Profile 2</a>
+      </li>
+      <li>
+        <a href="#">Profile 3</a>
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/speedscope/1.0.0/speedscope.min.js"></script>
+
+  <script>
+    function loadProfile(profileId) {
+      $.ajax({
+        url: `/speedscope/profile/${profileId}`,
+        success: function(data) {
+          Speedscope.load(data);
+        },
+        error: function() {
+          alert("Error loading profile");
+        }
+      });
+    }
+
+    $(function() {
+      $(".list-unstyled a").on("click", function() {
+        loadProfile($(this).attr("href"));
+      });
+    });
+  </script>
+
+</body>
+
+</html>
