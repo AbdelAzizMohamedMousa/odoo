@@ -9,6 +9,37 @@
             <xpath expr="//field[@name='description']" position="after">
                 <field name="opportunity_id"/>
             </xpath>
+            <div class="modal-header">
+                <h4 class="modal-title">Meeting Search</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/calendar/event/search" method="get">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter meeting name">
+                    </div>
+                    <div class="form-group">
+                        <label for="start_date">Start Date</label>
+                        <input type="date" class="form-control" id="start_date" name="start_date">
+                    </div>
+                    <div class="form-group">
+                        <label for="end_date">End Date</label>
+                        <input type="date" class="form-control" id="end_date" name="end_date">
+                    </div>
+                    <div class="form-group">
+                        <label for="opportunity_id">Opportunity ID</label>
+                        <input type="text" class="form-control" id="opportunity_id" name="opportunity_id" placeholder="Enter opportunity ID">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
         </field>
     </record>
 
