@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="assets_backend" name="CRM assets backend" inherit_id="web.assets_backend">
-        <xpath expr="." position="inside">
-            <script type="text/javascript" src="/crm/static/src/js/crm_form.js"/>
-            <script type="text/javascript" src="/crm/static/src/js/crm_kanban.js"/>
-            <script type="text/javascript" src="/crm/static/src/js/systray_activity_menu.js"/>
-            <script type="text/javascript" src="/crm/static/src/js/tours/crm.js"></script>
-        </xpath>
-    </template>
-    <template id="assets_tests" name="CRM Assets Tests" inherit_id="web.assets_tests">
-        <xpath expr="." position="inside">
-            <script type="text/javascript" src="/crm/static/tests/tours/crm_rainbowman.js"></script>
-            <script type="text/javascript" src="/crm/static/tests/tours/crm_email_and_phone_propagation.js"></script>
-        </xpath>
-    </template>
-    <template id="qunit_suite" name="crm tests" inherit_id="web.qunit_suite_tests">
-        <xpath expr="." position="inside">
-            <script type="text/javascript" src="/crm/static/tests/mock_server.js"></script>
-            <script type="text/javascript" src="/crm/static/tests/crm_rainbowman_tests.js"></script>
-        </xpath>
-    </template>         
+  <template id="assets_backend" name="CRM assets backend" inherit_id="web.assets_backend">
+    <xpath expr="." position="inside">
+      <script type="text/javascript" src="/crm/static/src/js/crm_form.js"/>
+      <script type="text/javascript" src="/crm/static/src/js/crm_kanban.js"/>
+      <script type="text/javascript" src="/crm/static/src/js/systray_activity_menu.js"/>
+      <script type="text/javascript" src="/crm/static/src/js/tours/crm.js"></script>
+      <!-- Add Bootstrap CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <!-- Add Bootstrap JS -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </xpath>
+  </template>
+  <template id="assets_tests" name="CRM Assets Tests" inherit_id="web.assets_tests">
+    <xpath expr="." position="inside">
+      <script type="text/javascript" src="/crm/static/tests/tours/crm_rainbowman.js"></script>
+      <script type="text/javascript" src="/crm/static/tests/tours/crm_email_and_phone_propagation.js"></script>
+    </xpath>
+  </template>
+  <template id="qunit_suite" name="crm tests" inherit_id="web.qunit_suite_tests">
+    <xpath expr="." position="inside">
+      <script type="text/javascript" src="/crm/static/tests/mock_server.js"></script>
+      <script type="text/javascript" src="/crm/static/tests/crm_rainbowman_tests.js"></script>
+    </xpath>
+  </template>         
 </odoo>
